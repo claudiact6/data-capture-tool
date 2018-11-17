@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Group = sequelize.define({
+  var Group = sequelize.define("Group", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -16,5 +16,20 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+
+  //Associate with Form; if admin decides to delete the account, delete all associated forms.
+  Group.associate = function(models) {
+    Group.hasMany(models.Form, {
+      onDelete: "cascade"
+    });
+  };
+
+  //Associate with User; if admin decides to delete the account, delete all associated users.
+  Group.associate = function(models) {
+    Group.hasMany(models.User, {
+      onDelete: "cascade"
+    });
+  };
+
   return Group;
 };

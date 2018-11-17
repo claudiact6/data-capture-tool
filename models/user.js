@@ -1,18 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define({
+  var User = sequelize.define("User", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       unique: true
-    },
-    group_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    role_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
@@ -29,5 +21,29 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   });
+
+  //Associate with Group
+  User.associate = function(models) {
+    User.belongsTo(models.Group, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  //Associate with Role
+  User.associate = function(models) {
+    User.belongsTo(models.Role, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  //Associate with Form
+  User.associate = function(models) {
+    User.hasMany(models.Form);
+  };
+
   return User;
 };

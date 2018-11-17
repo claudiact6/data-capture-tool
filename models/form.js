@@ -1,19 +1,34 @@
 module.exports = function(sequelize, DataTypes) {
-  var Form = sequelize.define({
+  var Form = sequelize.define("Form", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       unique: true
     },
-    group_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     form_name: {
       type: DataTypes.STRING,
       allowNull: false
     }
   });
+
+  //Associate with User
+  Form.associate = function(models) {
+    Form.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  //Associate with Group
+  Form.associate = function(models) {
+    Form.belongsTo(models.Group, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Form;
 };
