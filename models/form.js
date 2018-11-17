@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Form = sequelize.define("Form", {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
       unique: true

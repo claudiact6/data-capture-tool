@@ -11,5 +11,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+
+  //Associate with Users
+  Role.associate = function(models) {
+    Role.hasMany(models.User);
+  };
+
   return Role;
 };
