@@ -65,12 +65,36 @@ module.exports = function(app) {
   });
 
   /*   //Insert form submissions to form table (this doesn't work yet)
-  app.put("/api/form/:formid", function(req, res) {
+  app.put("/api/formresponses/:formid", function(req, res) {
     var formId = req.params.formid;
     db.formId.create(req.body).then(function(data) {
       res.json(data);
     });
   }); */
+
+  //Update user
+  app.put("/api/users/:userid", function(req, res) {
+    db.User.update(req.body, {
+      where: {
+        id: req.params.userid
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  //Update group
+  app.put("/api/group/:groupid", function(req, res) {
+    db.Group.update(req.body, {
+      where: {
+        id: req.params.groupid
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+
+  //Update forms (pending, not essential for MVP)
 
   //Delete form
   app.delete("/api/forms/:formid", function(req, res) {
