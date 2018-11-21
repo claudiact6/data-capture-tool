@@ -84,7 +84,7 @@ module.exports = function(app) {
         columns += " VARCHAR(255)";
       }
     }
-    var query = `CREATE TABLE ${req.body.id} (${columns})`;
+    var query = "CREATE TABLE " + req.body.id + " (" + columns + ")";
     sequelize.query(query);
     db.Form.create({
       id: req.body.id,
@@ -107,12 +107,12 @@ module.exports = function(app) {
         values += ", ";
       }
     }
-    var query = `INSERT INTO ${formId} VALUES (${values})`
+    var query = "INSERT INTO " + formId + " VALUES (" + values + ")";
     console.log(query);
-     sequelize.query(query).then(function(data) {
+    sequelize.query(query).then(function(data) {
       res.json(data);
     });
-  }); 
+  });
 
   //Update user
   app.put("/api/users/:userid", function(req, res) {
