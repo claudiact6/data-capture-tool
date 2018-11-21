@@ -9,6 +9,16 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background: #222;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://unsplash.it/1200/800/?random');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-fill-mode: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 main {
@@ -25,7 +35,7 @@ h1.title,
 /* start welcome animation */
 
 body.welcome {
-  background: gray;
+  background: rgb(63, 62, 62);
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -33,7 +43,7 @@ body.welcome {
 .welcome .splash {
   height: 0px;
   padding: 0px;
-  border: 130em solid aqua;
+  border: 130em solid white;
   position: fixed;
   left: 50%;
   top: 100%;
@@ -47,7 +57,7 @@ body.welcome {
 }
 
 .welcome #welcome {
-  background: #311b92 ;
+  background: aqua ;
   width: 56px;
   height: 56px;
   position: absolute;
@@ -116,7 +126,7 @@ body.welcome {
 
 @keyframes moveUp {
   0% {
-    background: #311b92;
+    background: aqua;
     top: 100%;
   }
   50% {
@@ -124,20 +134,20 @@ body.welcome {
   }
   100% {
     top: 50%;
-    background: #039be5;
+    background: aqua;
   }
 }
 
 @keyframes materia {
   0% {
-    background: #039be5;
+    background: aqua;
   }
   50% {
-    background: #039be5;
+    background: aqua;
     top: 26px;
   }
   100% {
-    background: #311b92;
+    background: aqua;
     width: 100%;
     height: 64px;
     border-radius: 0px;
@@ -162,56 +172,43 @@ body.welcome {
     opacity: 0;
   }
 }
+
+.nav3{
+  background: gray
+}
   </style>
 </head>
 <body class="welcome">
     <span id="splash-overlay" class="splash"></span>
     <span id="welcome" class="z-depth-4"></span>
   
-    <header class="navbar-fixed">
-      <nav class="row deep-purple darken-3">
-        <div class="col s12">
-          <ul class="right">
-            <li class="right">
-                <img src="https://lh3.googleusercontent.com/-Tt8RlULsFDw/W_XTnJ919BI/AAAAAAAAdEQ/WKfBKBRlRK0zWIIOTvt1mq7JischHa9BwCL0BGAYYCw/h314/2018-11-21.png" alt="Girl in a jacket" width="180" height="60">
-              <a href="" target="_blank" class="fa fa-facebook-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
-            </li>
-            <li class="right">
-              <a href="" target="_blank" class="fa fa-github-square fa-2x waves-effect waves-light"><span class="icon-text"></span></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-  
     <main class="valign-wrapper">
       <span class="container grey-text text-lighten-1 ">
   
         <p class="flow-text">Welcome to</p>
-        <img src="https://lh3.googleusercontent.com/-PSJilR87-uQ/W_XSG8INr7I/AAAAAAAAdDk/08TTBJoQb_QUmLMbqKmVQq-Otw2GMPK7ACL0BGAYYCw/h314/2018-11-21.png" alt="Girl in a jacket" width="500" height="200">
-  
-        <blockquote class="flow-text">A place to study for your High School Equivalency Diploma</blockquote>
+        <img src="https://lh3.googleusercontent.com/-2naKbfB9e2U/W_XmqdpJyKI/AAAAAAAAdFQ/iKtbNputQlUHr7ZB3NWavhfBsFdgy2WSACL0BGAYYCw/h203/2018-11-21%2B%25282%2529.png" alt="Girl in a jacket" width="600" height="200">
+        <blockquote class="flow-text">Reach your ideal target market by buying high-quality, well-targeted responses through our fast DIY market research solution audience.</blockquote>
   
         <div class="center-align">
           <!-- Dropdown Trigger -->
-          <a class="btn dropdown-button" href="" data-activates="exams">hse exams<i class="material-icons right">expand_more</i></a>
+          <a class="btn dropdown-button" href="" data-activates="exams">START NOW<i class="material-icons right">expand_more</i></a>
   
           <!-- Dropdown Structure -->
           <ul id="exams" class="dropdown-content">
-            <li><a href="#!">GED&trade; Exam</a></li>
-            <li><a href="#!">HiSET&trade; Exam</a></li>
-            <li><a href="#!">TASC&trade; Exam</a></li>
+            <li><a href="#!">REGISTER</a></li>
+            <li><a href="#!">LOG IN</a></li>
+            <li><a href="#!">CONTACT US</a></li>
           </ul>
           <!-- Dropdown Trigger -->
-          <a class="btn dropdown-button" href="" data-activates="study">study<i class="material-icons right">expand_more</i></a>
+          <a class="btn dropdown-button" href="" data-activates="study">CURRENT SURVEYS<i class="material-icons right">expand_more</i></a>
   
           <!-- Dropdown Structure -->
           <ul id="study" class="dropdown-content">
-            <li><a href="#!">mathematics</a></li>
-            <li><a href="#!">reading</a></li>
-            <li><a href="#!">science</a></li>
-            <li><a href="#!">social studies</a></li>
-            <li><a href="#!">writing</a></li>
+            <li><a href="#!">EMPLOYMENT</a></li>
+            <li><a href="#!">EDUCATION</a></li>
+            <li><a href="#!">BOOKING</a></li>
+            <li><a href="#!">LEADS</a></li>
+            <li><a href="#!">STUDIES</a></li>
           </ul>
         </div>
   
@@ -234,14 +231,6 @@ body.welcome {
       </div>
     </div>
   
-    <footer class="page-footer deep-purple darken-3">
-      <div class="footer-copyright deep-purple darken-4">
-        <div class="container">
-          <time datetime="{{ site.time | date: '%Y' }}">&copy; 2016 Jason</time>
-        </div>
-      </div>
-    </footer>
-
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js">
 $(document).ready(function(){
   $('.modal-trigger').leanModal();
