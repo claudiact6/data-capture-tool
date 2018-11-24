@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "5xADd45hLY1N",
-    "database": "quickforms_db",
+    "password": "1Het4f.r",
+    "database": "notes_db",
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"
@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": null,
-    "database": "quickforms_db",
+    "database": "notes_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
