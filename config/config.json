@@ -1,13 +1,8 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "1Het4f.r",
     "database": "notes_db",
-=======
-    "password": "password1",
-    "database": "quickforms_db",
->>>>>>> 414e82efe3a6ff5b0c69da31039c2ec4a42692ae
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"
