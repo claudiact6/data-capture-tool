@@ -1,6 +1,6 @@
-// const db = require("../models");
+var db = require("../models");
 var auth = require("./auth");
-// const firebase = require('firebase');
+var firebase = require('firebase');
 require("firebase/auth");
 
 // ...
@@ -10,11 +10,9 @@ module.exports = function(app) {
   });
 
   app.get("/", function(req, res) {
-    if (auth.isAuthenticated) {
+      // console.log(auth.isAuthenticated);
       res.render("all");
-    } else {
-      res.render("register");
-    }
+    } 
   });
 
   app.get("/add-note", function(req, res) {

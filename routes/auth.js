@@ -14,12 +14,12 @@ var config = {
 firebase.initializeApp(config);
 
 module.exports = {
-  isAuthenticated: function() {
-    var user = firebase.auth().currentUser;
+  isAuthenticated: function(res, req, next) {
     if (user !== null) {
-      return true;
+      req.user = user;
+      next();
     } else {
-      return false;
+      res.render("login");
     }
   }
 };
