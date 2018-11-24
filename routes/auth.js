@@ -1,8 +1,8 @@
-const firebase = require('firebase');
+var firebase = require('firebase');
 require('firebase/auth');
 require('firebase/database');
 // Initialize Firebase for the application
-const config = {
+var config = {
     apiKey: "AIzaSyCWafVtkCJHdmELqLECnWx9bFVr1OrofAs",
     authDomain: "quickforms-31125.firebaseapp.com",
     databaseURL: "https://quickforms-31125.firebaseio.com",
