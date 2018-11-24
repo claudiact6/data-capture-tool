@@ -1,29 +1,32 @@
-var db = require("../models");
+const db = require("../models");
+const auth = require('./auth');
+const firebase = require('firebase');
+require('firebase/auth');
 
 // ...
-module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    res.render("index");
-  });
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
-
-  // Render Register Handlebars
-  app.get("/register", function(req, res) {
+module.exports = function (app) {
+  app.get("/register", function (req, res, next) {
     res.render("register");
   });
 
+  app.get("/", function (req, res) {
+    if (auth.isAuthenticated) {
+      res.render("all");
+    } else {
+      res.render("register");
+    }
+  });
+
+  app.get("/add-note", function (req, res) {
+    res.render("add");
+  });
+
+  app.get("/my-notes", function (req, res) {
+    res.render("all");
+  });
+
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };

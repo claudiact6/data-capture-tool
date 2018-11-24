@@ -1,0 +1,22 @@
+{{> navbar }}
+<div class="container">
+    <div class="row h100 valign-wrapper left-align ">
+        <form class="col s4 offset-s4" id="addNote">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lightbulb_outline</i>
+                    <input id="title" type="text" class="validate">
+                    <label for="title">Title</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="body" class="materialize-textarea"></textarea>
+                    <label for="body">Description</label>
+                </div>
+            </div>
+            <a href="/api/add" type="submit" class="btn btn-flat right">Save</a>
+        </form>
+    </div>
+</div>
+
+<script src="/js/add.js"></script>
