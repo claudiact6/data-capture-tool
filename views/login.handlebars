@@ -1,3 +1,78 @@
+<<<<<<< HEAD
+<div class="container">
+    <div class="row h100 valign-wrapper">
+        <div class="col s6 offset-s3">
+            <form id="login-form" class="col s12 white">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="user-email-login" type="email" class="validate">
+                        <label for="user-email-login">Email</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="password-login" type="password" class="validate">
+                        <label for="password-login">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6 center-align">
+                        <small>Not registered?</small>
+                        <a class="waves-effect waves-light btn-flat formToggle">Register here</a>
+                    </div>
+                    <div class="col s6 center-align">
+                        <a id="logIn" class="waves-effect waves-light btn"><i class="material-icons left">send</i>Login</a>
+                    </div>
+                </div>
+            </form>
+                        <div id="logged" class="col s4 offset-s2 white center-align hide">
+                <h2>You are Logged In!</h2>
+                <a id="logOut" class="waves-effect waves-light btn"><i class="material-icons left">exit_to_app</i>Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const config = {
+            apiKey: "AIzaSyCWafVtkCJHdmELqLECnWx9bFVr1OrofAs",
+            authDomain: "quickforms-31125.firebaseapp.com",
+            databaseURL: "https://quickforms-31125.firebaseio.com",
+            projectId: "quickforms-31125",
+            storageBucket: "",
+            messagingSenderId: "463191830446"
+        };
+        firebase.initializeApp(config);
+        const database = firebase.database();
+
+        
+    let logOut = document.getElementById("logOut");
+    logOut.addEventListener("click", (e) => {
+        e.preventDefault();
+        firebase.auth().signOut()
+    })
+
+        let register = document.getElementById("registerDB");
+        let logIn = document.getElementById("logIn");
+        logIn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let email = document.getElementById("user-email-login").value;
+            let password = document.getElementById("password-login").value;
+            console.log(email, password)
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // ...
+                console.log(error);
+            });
+        });
+    });
+
+</script>
+=======
 <!DOCTYPE html>
 <head>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -77,3 +152,4 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
 </body>
 </html>
+>>>>>>> 414e82efe3a6ff5b0c69da31039c2ec4a42692ae

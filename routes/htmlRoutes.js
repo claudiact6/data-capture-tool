@@ -1,34 +1,28 @@
-var db = require("../models");
+// const db = require("../models");
+var auth = require("./auth");
+// const firebase = require('firebase');
+require("firebase/auth");
 
 // ...
 module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    res.render("index");
-  });
-
-  // Render login page
-  app.get("/login", function(req, res) {
-    res.render("login");
-  });
-
-  app.get("/dashboard", function(req, res) {
-    res.render("admin");
-  });
-  // Load example page and pass in an example by id
-  app.get("/dashboard/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("admin", {
-        example: dbExample
-      });
-    });
-  });
-
-  // Render Register Handlebars
   app.get("/register", function(req, res) {
     res.render("register");
+  });
+
+  app.get("/", function(req, res) {
+    if (auth.isAuthenticated) {
+      res.render("all");
+    } else {
+      res.render("register");
+    }
+  });
+
+  app.get("/add-note", function(req, res) {
+    res.render("add");
+  });
+
+  app.get("/my-notes", function(req, res) {
+    res.render("all");
   });
 
   //Render Admin Dashboard

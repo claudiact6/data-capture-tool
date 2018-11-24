@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS quickforms_db;
+DROP DATABASE IF EXISTS notes_db;
 
-CREATE DATABASE quickforms_db;
+CREATE DATABASE notes_db;
 
-USE quickforms_db;
+USE notes_db;

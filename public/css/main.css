@@ -1,0 +1,57 @@
+body,
+html {
+    background: #b22222;
+    position: relative;
+}
+
+.h100 {
+    min-height: calc(100vh - 20px) !important;
+}
+
+.blackText {
+    color: black !important;
+}
+
+small {
+    display: block;
+    margin: 0 !important;
+}
+
+.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.m15 {
+ margin: 15px;
+ margin-left: 0 !important;
+}
+
+  /* label color */
+  .input-field label {
+    color: #fff;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #fff;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #fff;
+  }

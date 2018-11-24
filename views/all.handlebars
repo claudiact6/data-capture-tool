@@ -1,0 +1,33 @@
+{{> navbar }}
+
+<div class="container">
+    <div class="row h100 valign-wrapper left-align ">
+        {{#each notes}}
+        <div class="col m15 s4">
+            <div class="card blue-grey lighten-1 ">
+                <div class="card-content white-text">
+                    <span class="card-title">{{title}}</span>
+                    <p>
+                        {{description}}
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Edit</a>
+                    <a href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="col s4 offset-s4">
+            <div class="card blue-grey lighten-1 ">
+                <div class="card-content white-text">
+                    <span class="card-title">You Don't have any notes yet!</span>
+                 </div>
+                <div class="card-action right-align">
+                    <a href="/add-note">Add</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
