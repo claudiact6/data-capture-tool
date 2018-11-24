@@ -24,7 +24,7 @@ module.exports = function(app) {
       console.log(res.json(data));
     });
   });
-
+}
 //   //Get all forms for a user (based on "group", not user)
 //   app.get("/api/forms/:groupid", function(req, res) {
 //     db.Form.findAll({

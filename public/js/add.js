@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.addEventListener("submit", () => {
         event.preventDefault();
 
-        if (!title || !body ||) {
+        if (!title || !body) {
             return;
         }
         // Constructing a newPost object to hand to the database
@@ -26,12 +26,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // If we're updating a post run updatePost to update a post
         // Otherwise run submitPost to create a whole new post
-        if (updating) {
-            newPost.id = postId;
-            updatePost(newPost);
-        }
-        else {
-            submitPost(newPost);
-
-        })
 });
