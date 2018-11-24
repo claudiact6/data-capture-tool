@@ -17,6 +17,11 @@ module.exports = function(app) {
     });
   });
 
+  // Render Register Handlebars
+  app.get("/register", function(req, res) {
+    res.render("register");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

@@ -1,3 +1,18 @@
+var Sequelize = require("sequelize");
+var env = process.env.NODE_ENV || "development";
+var config = require(__dirname + "/../config/config.json")[env];
+
+if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+} else {
+  var sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+}
+
 var db = require("../models");
 
 module.exports = function(app) {
@@ -34,14 +49,14 @@ module.exports = function(app) {
     });
   });
 
-  //Get submissions for a specific form . THIS DOESN'T WORK.
-  /*   app.get("/api/form/:formid", function(req, res) {
+  //Get submissions for a specific form
+  app.get("/api/form/:formid", function(req, res) {
     var formId = req.params.formid;
     console.log(formId);
-    db.formId.findAll({}).then(function(data) {
+    sequelize.query("SELECT * FROM " + formId).then(function(data) {
       res.json(data);
     });
-  }); */
+  });
 
   //Create user
   app.put("/api/users", function(req, res) {
@@ -59,18 +74,45 @@ module.exports = function(app) {
 
   //Create form (AND CREATE TABLE FOR FORM in this same moment? or separately?*****)
   app.put("/api/forms", function(req, res) {
-    db.Form.create(req.body).then(function(data) {
+    var questions = req.body.questions;
+    var columns = "";
+    for (i = 0; i < questions.length; i++) {
+      columns += questions[i];
+      if (i < questions.length - 1) {
+        columns += " VARCHAR(255), ";
+      } else {
+        columns += " VARCHAR(255)";
+      }
+    }
+    var query = "CREATE TABLE " + req.body.id + " (" + columns + ")";
+    sequelize.query(query);
+    db.Form.create({
+      id: req.body.id,
+      form_name: req.body.form_name,
+      GroupId: req.body.GroupId,
+      UserId: req.body.UserId
+    }).then(function(data) {
       res.json(data);
     });
   });
 
-  /*   //Insert form submissions to form table (this doesn't work yet)
+  //Insert form submissions to form table
   app.put("/api/formresponses/:formid", function(req, res) {
     var formId = req.params.formid;
-    db.formId.create(req.body).then(function(data) {
+    var responses = req.body.responses;
+    var values = "";
+    for (i = 0; i < responses.length; i++) {
+      values += "'" + responses[i] + "'";
+      if (i < responses.length - 1) {
+        values += ", ";
+      }
+    }
+    var query = "INSERT INTO " + formId + " VALUES (" + values + ")";
+    console.log(query);
+    sequelize.query(query).then(function(data) {
       res.json(data);
     });
-  }); */
+  });
 
   //Update user
   app.put("/api/users/:userid", function(req, res) {

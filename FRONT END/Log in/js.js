@@ -1,39 +1,32 @@
 var questions = [
-    {question:"What's your first name?"},
-    {question:"What's your last name?"},
-    {question:"What's your email?", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/},
-    {question:"Create your password", type: "password"}
-  ]
-  
-  /**********
-  
+  { question: "What's your first name?" },
+  { question: "What's your last name?" },
+  { question: "What's your email?", pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+  { question: "Create your password", type: "password" }
+];
+
+/**********
+
     !!!!!
     New Version: https://codepen.io/arcs/pen/rYXrNQ
     !!!!!
-    
     Credits for the design go to XavierCoulombeM
     https://dribbble.com/shots/2510592-Simple-register-form
-    
-    This Pen uses no libraries except fonts and should 
+    This Pen uses no libraries except fonts and should
     work on all modern browsers
-    
     The answers are stored in the `questions` array
-    with the key `value`. 
-  
+    with the key `value`.
    **********/
-  
-  ;(function(){
-  
-    var tTime = 100  // transition transform time from #register in ms
-    var wTime = 200  // transition width time from #register in ms
-    var eTime = 1000 // transition width time from inputLabel in ms
-  
-    // init
-    // --------------
-    var position = 0
-  
-    putQuestion()
-  
+(function() {
+  var tTime = 100; // transition transform time from #register in ms
+  var wTime = 200; // transition width time from #register in ms
+  var eTime = 1000; // transition width time from inputLabel in ms
+
+  // init
+  // --------------
+  var position = 0;
+  putQuestion()
+
     progressButton.addEventListener('click', validate)
     inputField.addEventListener('keyup', function(e){
       transform(0, 0) // ie hack to redraw
