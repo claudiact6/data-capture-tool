@@ -14,7 +14,7 @@ var config = {
 firebase.initializeApp(config);
 
 module.exports = {
-  isAuthenticated: function(req, res, next) {
+  isAuthenticated: function() {
     var user = firebase.auth().currentUser;
     if (user !== null) {
       return true;
