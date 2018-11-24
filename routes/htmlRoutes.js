@@ -1,5 +1,5 @@
 // const db = require("../models");
-const auth = require('./auth');
+var auth = require('./auth');
 // const firebase = require('firebase');
 require('firebase/auth');
 

@@ -19,10 +19,10 @@ module.exports = function (app) {
   //Get data on a specific user
   app.get("/api/add/", function (req, res) {
     db.User.findAll({}).then(function (data) {
-        res.json(data);
-        console.log(res.json(data));
-      });
+      res.json(data);
+      console.log(res.json(data));
     });
+  });
 }
 //Get all forms for a user (based on "group", not user)
 app.get("/api/forms/:groupid", function (req, res) {
@@ -167,4 +167,3 @@ app.delete("/api/gropus/:groupid", function (req, res) {
     res.json(data);
   });
 });
-};
